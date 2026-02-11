@@ -39,4 +39,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
     CMD node -e "const http = require('http'); http.get('http://localhost:18789/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1); }).on('error', () => { process.exit(1); });" || exit 1
 
 # Start the gateway
-CMD ["openclaw", "gateway", "--port", "18789", "--host", "0.0.0.0"]
+CMD ["openclaw", "gateway", "--port", "18789"]
