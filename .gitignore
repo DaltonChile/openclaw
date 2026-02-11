@@ -1,0 +1,39 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OpenClaw data (if mounted locally)
+.openclaw/
+openclaw-data/
+
+# Backups
+*.tar.gz
+openclaw-backups/
+
+# Docker
+docker-compose.override.yml
+
+# SSH keys
+*.pem
+*.key
+id_rsa*
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+temp/

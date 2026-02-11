@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  openclaw:
+    build: .
+    container_name: openclaw-gateway
+    restart: unless-stopped
+    ports:
+      - "18789:18789"
+    volumes:
+      # Persist OpenClaw data (sessions, auth, config)
+      - openclaw-data:/root/.openclaw
+    environment:
+      # Set your Anthropic API key here or use .env file
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      # Optional: other provider keys
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    networks:
+      - openclaw-net
+    # Security options
+    security_opt:
+      - no-new-privileges:true
+    # Resource limits (adjust based on your VM size)
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+
+volumes:
+  openclaw-data:
+    driver: local
+
+networks:
+  openclaw-net:
+    driver: bridge
