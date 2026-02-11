@@ -10,11 +10,10 @@ services:
     volumes:
       # Persist OpenClaw data (sessions, auth, config)
       - openclaw-data:/root/.openclaw
-    environment:
-      # Set your Anthropic API key here or use .env file
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      # Optional: other provider keys
-      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    # environment:
+      # API keys can be configured later via openclaw config or .env file
+      # - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      # - OPENAI_API_KEY=${OPENAI_API_KEY:-}
     networks:
       - openclaw-net
     # Security options
