@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     fonts-freefont-ttf \
     libxss1 \
     ca-certificates \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
 # Set up puppeteer to use installed chromium
